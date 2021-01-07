@@ -10,9 +10,9 @@ PARTICLE_RADIUS = 8
 
 
 def main(
-    steps=5000,
-    nr_of_particles=200,
-    temperature=5,  # Kelvin (that's pretty cool!)
+    steps=4000,
+    nr_of_particles=150,
+    temperature=3,  # Kelvin (that's pretty cool!)
     run_integrator=True,
     dt=1e-2,
     collision_distance=(2 * PARTICLE_RADIUS / DISPLAY_SIZE[0])
