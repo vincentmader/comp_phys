@@ -18,8 +18,7 @@ This repository contains a collection of numerical algorithms for modeling
 various physics problems and visualizing them. As of yet, there is not that
 much to see (mainly a double-pendulum simulator), but as I continue working on
 the project I hope to include much more.
-\\
-\\
+
 In the section on =Ideas for the future=, I outline some physics problems that
 might be interesting to include in the future. If you have any other ideas
 for interesting simulations, feel free to write me!
@@ -74,7 +73,6 @@ python3 ./main.py
 Since /C/ runs quite a lot faster than /Python/, it might prove worth the
 effort to re-write some of the code dealing with numerical integration
 of the differential equations into /C/ // C++/.
-\\
-\\
+
 Let me know if you can think of any other improvements or have ideas for
 interesting physics problems you'd like to see simulated :)
