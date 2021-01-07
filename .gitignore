@@ -5,3 +5,6 @@ __pycache__
 env
 node_modules
 venv
+README.tex
+README.pdf
+.auctex-auto
