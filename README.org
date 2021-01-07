@@ -13,30 +13,27 @@
 #+AUTHOR: Vincent C. Mader
 #+PROPERTY: header-args :tangle ./zshrc
 
-a collection of numerical algorithms for various physics problems
+This repository contains a collection of numerical algorithms for modeling
+various physics problems and visualizing them. As of yet, there is not much to
+see.
 
-* ideas
-** maths
-*** lissajous
-** mechanics
-*** Billard game (ellastic collisions)
-*** staged rocket
-** gravity & astronomy
-*** n-body solver
-*** accreting binary star
-** pendula
-*** single pendulum
-*** double pendulum
-*** n-pendulum
-** thermodynamics
-*** ideal gas in a box
-**** use ellastic collision
-** Q.M.
-*** Q.M. wavepacket-wavepacket scattering
-*** Schrodinger equation
-**** for many bodies
-*** 3D Ising model on cubic crystal
-*** proton scattering with heavy ion (Glauber model)
-** fluid dynamics
-*** fluid flow through a pipe
-*** fluid flow through a Raptor engine
+Ideas for the future include:
+  - classical mechanics
+    + single pendulum
+    + double pendulum
+    + general n-pendulum
+  - astronomy & gravity
+    + n-body simulation
+    + accreting binary star (fluid dyn. + gravity)
+    + simulation of a multi-stage rocket
+  - thermodynamics
+    + ideal gas in a box
+  - quantum mechanics
+    + wavepacket-wavepacket scattering
+    + Ising model
+    + proton scattering with heavier ions (Glauber model)
+  - fluid dynamics
+    + flow through a pipe
+    + flow through a rocket engine
+  - maths
+    + Lissajous curves
