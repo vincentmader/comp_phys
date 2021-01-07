@@ -3,7 +3,7 @@
 #+latex_compiler: pdflatex
 #+latex_class_options:
 #+latex_header: \input{/home/vinc/docs/LaTeX/reportheader.tex}
-#+latex_header_extra:
+#+latex_header_extra: \setlength{\parindent}{0pt}
 #+description:
 #+keywords:
 #+subtitle:
@@ -14,7 +14,6 @@
 #+PROPERTY: header-args :tangle ./zshrc
 # #+OPTIONS: \n:t
 
-\setlength{\parindent}{0pt}
 
 This repository contains a collection of numerical algorithms for modeling
 various physics problems and visualizing them. As of yet, there is not that
