@@ -14,37 +14,20 @@
 #+PROPERTY: header-args :tangle ./zshrc
 # #+OPTIONS: \n:t
 
-**** test
-
 This repository contains a collection of numerical algorithms for modeling
 various physics problems and visualizing them. As of yet, there is not that
-much to see, but ideas for the future include:
-  - classical mechanics
-    + single pendulum
-    + double pendulum
-    + general n-pendulum
-  - astronomy & gravity
-    + n-body simulation
-    + accreting binary star (fluid dyn. + gravity)
-    + simulation of a multi-stage rocket
-  - thermodynamics
-    + ideal gas in a box
-  - quantum mechanics
-    + wavepacket-wavepacket scattering
-    + Q.M. harmonic oscillator
-    + Ising model for a cubic crystal
-    + proton scattering with heavier ions (Glauber model)
-  - fluid dynamics
-    + flow through a pipe
-    + flow through a rocket engine
-  - maths
-    + Lissajous curves
-    + Monte Carlo calculation of pi
+much to see (mainly a double-pendulum simulator), but as I continue working on
+the project I hope to include much more.
+\\
+In the section on =Ideas for the future=, I outline some physics problems that
+might be interesting to include in the future. If you have any other ideas
+for interesting simulations, feel free to write me!
 
-To explore the simulations, you will first need to install the necessary Python
-packages. You may or may not use a virtual environment for this.
-If you do want to use a virtual environment, change your directory path into
-this repository and run the following commands in your shell:
+*** Setup & first runs
+To explore the simulations, you will first need to install the necessary
+/Python/ packages. You may or may not use a virtual environment for this.
+If you do want to use a virtual environment, change your directory path
+into this repository and run the following commands in your shell:
 
 #+begin_src shell
 python3 -m venv venv
@@ -58,4 +41,38 @@ pip install -r ./requirements.txt
 #+end_src
 
 Then, in the ~./main.py~ file, uncomment the function call for the physics
-problem you are interested in.
+problem you are interested in and execute the script.
+
+#+begin_src shell
+python3 ./main.py
+#+end_src
+
+*** Ideas for the future
+- classical mechanics
+  + single pendulum
+  + double pendulum
+  + general n-pendulum
+- astronomy & gravity
+  + n-body simulation
+  + accreting binary star (fluid dyn. + gravity)
+  + simulation of a multi-stage rocket
+- thermodynamics
+  + ideal gas in a box
+- quantum mechanics
+  + wavepacket-wavepacket scattering
+  + Q.M. harmonic oscillator
+  + Ising model for a cubic crystal
+  + proton scattering with heavier ions (Glauber model)
+- fluid dynamics
+  + flow through a pipe
+  + flow through a rocket engine
+- maths
+  + Lissajous curves
+  + Monte Carlo calculation of pi
+
+Since /C/ runs quite a lot faster than /Python/, it might prove worth the
+effort to re-write some of the code dealing with numerical integration
+of the differential equations into /C/ // C++/.
+\\
+Let me know if you can think of any other improvements or have ideas for
+interesting physics problems you'd like to see simulated :)
