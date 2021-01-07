@@ -5,6 +5,8 @@ from numpy import cos, sin, pi
 import pygame
 from pygame.locals import *
 
+from utils import display_utils
+
 
 # define colors for displaying with pygame
 BLACK, WHITE = (0, 0, 0), (255, 255, 255)
@@ -33,22 +35,6 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
         y_2 = (-0.24 * y_2 + .5) * DISPLAY_HEIGHT
 
         return x_1, y_1, x_2, y_2
-
-    def draw_frame():
-        pygame.draw.line(
-            DISPLAY, WHITE, (0, 0), (0, DISPLAY_HEIGHT), 5
-        )
-        pygame.draw.line(
-            DISPLAY, WHITE,
-            (0, DISPLAY_HEIGHT), (DISPLAY_WIDTH, DISPLAY_HEIGHT), 5
-        )
-        pygame.draw.line(
-            DISPLAY, WHITE,
-            (DISPLAY_WIDTH, DISPLAY_HEIGHT), (DISPLAY_WIDTH, 0), 5
-        )
-        pygame.draw.line(
-            DISPLAY, WHITE, (DISPLAY_WIDTH, 0), (0, 0), 5
-        )
 
     def make_transparent(color, alpha):
         r, g, b = color[0], color[1], color[2]
@@ -104,7 +90,7 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
             continue
         # clear screen & draw frame
         DISPLAY.fill(BLACK)
-        draw_frame()
+        display_utils.draw_frame(DISPLAY, WHITE, display_size)
         # get pendulum coordinates for given frame
         th_1, th_2 = y[0], y[1]
         x_1, y_1 = L * sin(th_1), -L * cos(th_1)
