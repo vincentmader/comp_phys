@@ -20,7 +20,3 @@ def main(steps=500, run_integrator=True):
         ys = np.loadtxt('./n_body/out/ys.txt')
 
     display(ys)
-
-
-if __name__ == "__main__":
-    main()
