@@ -10,8 +10,8 @@ PARTICLE_RADIUS = 8
 
 
 def main(
-    steps=4000,
-    nr_of_particles=150,
+    steps=3000,
+    nr_of_particles=100,
     temperature=3,  # Kelvin (that's pretty cool!)
     run_integrator=True,
     dt=1e-2,

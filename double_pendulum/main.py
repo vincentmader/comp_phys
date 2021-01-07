@@ -8,6 +8,8 @@ from .integrate import main as integrate
 from .display import main as display
 import utils
 
+DISPLAY_SIZE = 900, 900
+
 
 # set initial conditions
 y0 = [pi, .8*pi, 0, 0]
@@ -34,6 +36,7 @@ def main(steps=50000, run_integrator=False, in_christmas_mode=False):
         ys, L,
         in_christmas_mode=in_christmas_mode,
         fading_tails=True,
+        display_size=DISPLAY_SIZE
     )
 
 
