@@ -10,20 +10,20 @@ from pygame.locals import *
 BLACK, WHITE = (0, 0, 0), (255, 255, 255)
 RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 
-TAIL_LENGTH = 250
+TAIL_LENGTH = 200
 
 
 def main(ys, L, in_christmas_mode=False, fading_tails=True):
 
     pygame.init()
     # define display
-    DISPLAY_WIDTH, DISPLAY_HEIGHT = 1000, 1000
+    DISPLAY_WIDTH, DISPLAY_HEIGHT = 900, 900
     DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT), 0, 32)
     ORIGIN = (DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2)
     # define fonts
     pygame.font.init()
     myfont = pygame.font.SysFont('Hack Nerd', 60)
-    title_font = pygame.font.SysFont('Hack Nerd', 80)
+    title_font = pygame.font.SysFont('Hack Nerd', 200)
 
     def shift_coordinates(x_1, y_1, x_2, y_2):
 
@@ -51,7 +51,6 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
         )
 
     def make_transparent(color, alpha):
-        # alpha = min(1, alpha)
         r, g, b = color[0], color[1], color[2]
         return (int(alpha * r), int(alpha * g), int(alpha * b))
 
@@ -72,8 +71,6 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
             x_2p, y_2p = x_1p + L * sin(th_2), y_1p - L * cos(th_2)
             x_1p, y_1p, x_2p, y_2p = shift_coordinates(x_1p, y_1p, x_2p, y_2p)
 
-            # print((frame_num - idx + TAIL_LENGTH) / TAIL_LENGTH)
-            # alpha = 1 - (frame_num - idx + TAIL_LENGTH) / TAIL_LENGTH)
             if fading_tails:
                 tail_idx = frame_num - idx
                 alpha = 1 - tail_idx / tail_length
@@ -82,8 +79,9 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
             red = make_transparent(RED, alpha)
             green = make_transparent(GREEN, alpha)
 
-            pygame.draw.line(DISPLAY, green, (x_1p, y_1p), (x_1c, y_1c), 5)
             pygame.draw.line(DISPLAY, red, (x_2p, y_2p), (x_2c, y_2c), 5)
+            if not in_christmas_mode:
+                pygame.draw.line(DISPLAY, green, (x_1p, y_1p), (x_1c, y_1c), 5)
 
     frame_num = 0
     while True:
@@ -94,9 +92,9 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
                 sys.exit()
         # display christmas message
         if in_christmas_mode and frame_num == 375:
-            text = f'Frohe Weihnachten!'
+            text = f'Merry Christmas!'
             textsurface = title_font.render(f'{text}', False, (255, 0, 0))
-            DISPLAY.blit(textsurface, (.3*DISPLAY_WIDTH, .14*DISPLAY_HEIGHT))
+            DISPLAY.blit(textsurface, (.08*DISPLAY_WIDTH, .14*DISPLAY_HEIGHT))
             pygame.display.update()
             input()
         # stop animation after last entry in simulation output data
@@ -104,7 +102,7 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
             y = ys[frame_num]
         except IndexError:
             continue
-        # clear screen * draw frame
+        # clear screen & draw frame
         DISPLAY.fill(BLACK)
         draw_frame()
         # get pendulum coordinates for given frame
@@ -121,10 +119,11 @@ def main(ys, L, in_christmas_mode=False, fading_tails=True):
         pygame.draw.circle(DISPLAY, WHITE, ORIGIN, 10, 15)
         pygame.draw.circle(DISPLAY, WHITE, (x_1, y_1), 10, 45)
         pygame.draw.circle(DISPLAY, WHITE, (x_2, y_2), 10, 45)
-        pygame.draw.line(DISPLAY, WHITE, ORIGIN, (x_1, y_1), 1)
-        pygame.draw.line(DISPLAY, WHITE, (x_1, y_1), (x_2, y_2), 1)
+        pygame.draw.line(DISPLAY, WHITE, ORIGIN, (x_1, y_1), 3)
+        pygame.draw.line(DISPLAY, WHITE, (x_1, y_1), (x_2, y_2), 3)
         # show frame number in top left
         if not in_christmas_mode:
+            formatted_frame_num = frame_num
             if frame_num < 10000:
                 formatted_frame_num = f'0{frame_num}'
                 if frame_num < 1000:
