@@ -54,5 +54,5 @@ You can also skip this step and install the packages globally:
 pip install -r ./requirements.txt
 #+end_src
 
-Then, in the ~./main.py file~, uncomment the function call for the physics
+Then, in the ~./main.py~ file, uncomment the function call for the physics
 problem you are interested in.
