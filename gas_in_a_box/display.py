@@ -48,7 +48,7 @@ def main(ys, nr_of_particles, display_size, particle_radius):
             x *= DISPLAY_WIDTH
             y *= DISPLAY_HEIGHT
 
-            color = RED if particle_idx < 20 else WHITE
+            color = RED if particle_idx < 10 else WHITE
             pygame.draw.circle(DISPLAY, color, (x, y), particle_radius)
 
         formatted_frame_num = frame_num

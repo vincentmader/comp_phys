@@ -15,7 +15,10 @@ RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 TAIL_LENGTH = 200
 
 
-def main(ys, L, in_christmas_mode=False, fading_tails=True):
+def main(
+    ys, L, in_christmas_mode=False,
+    fading_tails=True, display_size=(900, 900)
+):
 
     pygame.init()
     # define display
