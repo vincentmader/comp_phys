@@ -14,6 +14,7 @@
 #+PROPERTY: header-args :tangle ./zshrc
 # #+OPTIONS: \n:t
 
+**** test
 
 This repository contains a collection of numerical algorithms for modeling
 various physics problems and visualizing them. As of yet, there is not that
@@ -30,13 +31,15 @@ much to see, but ideas for the future include:
     + ideal gas in a box
   - quantum mechanics
     + wavepacket-wavepacket scattering
-    + Ising model
+    + Q.M. harmonic oscillator
+    + Ising model for a cubic crystal
     + proton scattering with heavier ions (Glauber model)
   - fluid dynamics
     + flow through a pipe
     + flow through a rocket engine
   - maths
     + Lissajous curves
+    + Monte Carlo calculation of pi
 
 To explore the simulations, you will first need to install the necessary Python
 packages. You may or may not use a virtual environment for this.
