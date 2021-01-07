@@ -12,12 +12,13 @@
 #+TITLE: Computational Physics
 #+AUTHOR: Vincent C. Mader
 #+PROPERTY: header-args :tangle ./zshrc
+# #+OPTIONS: \n:t
+
+\setlength{\parindent}{0pt}
 
 This repository contains a collection of numerical algorithms for modeling
-various physics problems and visualizing them. As of yet, there is not much to
-see.
-
-Ideas for the future include:
+various physics problems and visualizing them. As of yet, there is not that
+much to see, but ideas for the future include:
   - classical mechanics
     + single pendulum
     + double pendulum
@@ -37,3 +38,22 @@ Ideas for the future include:
     + flow through a rocket engine
   - maths
     + Lissajous curves
+
+To explore the simulations, you will first need to install the necessary Python
+packages. You may or may not use a virtual environment for this.
+If you do want to use a virtual environment, change your directory path into
+this repository and run the following commands in your shell:
+
+#+begin_src shell
+python3 -m venv venv
+source venv/bin/activate
+#+end_src
+
+You can also skip this step and install the packages globally:
+
+#+begin_src shell
+pip install -r ./requirements.txt
+#+end_src
+
+Then, in the ~./main.py file~, uncomment the function call for the physics
+problem you are interested in.
