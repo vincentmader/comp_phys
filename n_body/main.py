@@ -14,18 +14,18 @@ def kepler_velocity(r):
 
 y0 = [
     M,    1,   0, 0, 0,   0, 0, 0,  # mass, radius, 3 pos. & 3 vel. values
-    # 1e-6, 1,   0.25, 0, 0,   0, kepler_velocity(0.25), 0,
-    # 1e-6, 1,   1, 0, 0,   0, 1, 0,
-    # 1e-6, 1,   1.25, 0, 0,   0, kepler_velocity(1.25), 0,
-    # 1e-6, 1,   1.5, 0, 0,   0, kepler_velocity(1.5), 0,
-    # 1e-6, 1,   1.75, 0, 0,   0, kepler_velocity(1.75), 0,
-    # 1e-6, 1,   2, 0, 0,   0, kepler_velocity(2), 0,
-    # 1e-6, 1,   2, 1, 0,   0, kepler_velocity(4), 0,
+    1e-6, 1,   0.25, 0, 0,   0, kepler_velocity(0.25), 0,
+    1e-6, 1,   1, 0, 0,   0, 1, 0,
+    1e-6, 1,   1.25, 0, 0,   0, kepler_velocity(1.25), 0,
+    1e-6, 1,   1.5, 0, 0,   0, kepler_velocity(1.5), 0,
+    1e-6, 1,   1.75, 0, 0,   0, kepler_velocity(1.75), 0,
+    1e-6, 1,   2, 0, 0,   0, kepler_velocity(2), 0,
+    1e-6, 1,   2, 1, 0,   0, kepler_velocity(4), 0,
 
-    1e-5, 1,   sqrt(2), 0, 0,   0, kepler_velocity(10), 0,
-    1e-5, 1,   -sqrt(2), 0, 0,   0, -kepler_velocity(10), 0,
-    1e-5, 1,   0, sqrt(2), 0,   -kepler_velocity(10), 0, 0,
-    1e-5, 1,   0, -sqrt(2), 0,   kepler_velocity(10), 0, 0,
+    # 1e-5, 1,   sqrt(2), 0, 0,   0, kepler_velocity(10), 0,
+    # 1e-5, 1,   -sqrt(2), 0, 0,   0, -kepler_velocity(10), 0,
+    # 1e-5, 1,   0, sqrt(2), 0,   -kepler_velocity(10), 0, 0,
+    # 1e-5, 1,   0, -sqrt(2), 0,   kepler_velocity(10), 0, 0,
 
     # 1e-5, 1,   1, 1, 0,   0,  kepler_velocity(10), 0,
     # 1e-5, 1,   -1, 1, 0,   0,  -kepler_velocity(10), 0,

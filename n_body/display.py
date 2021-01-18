@@ -20,20 +20,19 @@ def main(ys):
     nr_of_bodies = int(len(ys[0]) / 8)
 
     # make plot
-    for i in range(nr_of_bodies):
-        x = [j[8*i+2] for j in ys]
-        y = [j[8*i+3] for j in ys]
-        # print(x)
-        # print(y)
-        # input()
+    # for i in range(nr_of_bodies):
+    #     x = [j[8*i+2] for j in ys]
+    #     y = [j[8*i+3] for j in ys]
+    #     # print(x)
+    #     # print(y)
+    #     # input()
 
-        plt.plot(x, y, label=i)
-    plt.legend()
-    plt.savefig('test.pdf')
+    #     plt.plot(x, y, label=i)
+    # plt.legend()
+    # plt.savefig('test.pdf')
 
     # =================
 
-    pygame.init()
     # define display
     DISPLAY_WIDTH, DISPLAY_HEIGHT = 900, 900
     DISPLAY_SIZE = DISPLAY_WIDTH, DISPLAY_HEIGHT
@@ -106,5 +105,6 @@ def main(ys):
 
         # update, wait shortly, update frame number
         pygame.display.update()
-        time.sleep(0.01)
+        # time.sleep(0.01)
         frame_num += 1
+        # break
