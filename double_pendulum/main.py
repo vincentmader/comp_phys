@@ -24,7 +24,7 @@ def main(steps=50000, run_integrator=False, in_christmas_mode=False):
     # get simulation output data
     if run_integrator:
         ys = integrate(y0, m, L, steps)
-        np.savetxt('.double_pendulum/out/ys.txt', ys)
+        np.savetxt('./double_pendulum/out/ys.txt', ys)
     else:
         if in_christmas_mode:
             ys = np.loadtxt('./double_pendulum/out/ys_christmas.txt')
