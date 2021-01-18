@@ -52,6 +52,7 @@ python3 ./main.py
   + single pendulum
   + double pendulum
   + general n-pendulum
+  + Galilean cannon
 - astronomy & gravity
   + n-body simulation
   + accreting binary star (fluid dyn. + gravity)
