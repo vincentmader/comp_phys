@@ -1,1 +1,1 @@
-from .foo import main as foo
+from .main import main as main

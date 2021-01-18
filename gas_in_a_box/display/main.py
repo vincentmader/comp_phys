@@ -76,5 +76,6 @@ def main(ys, nr_of_particles, display_size):
 
         # date for fps
         date_finish = dt.now()
-        fps = 1 / ((date_finish - date_start)).seconds
-        print(fps)
+        fps = 1000000 / ((date_finish - date_start)).microseconds
+        if not frame_num % 20:
+            print(f'fps: {round(fps)}')
