@@ -10,18 +10,19 @@ from .runge_kutta import main as runge_kutta
 from utils.math_utils import l2_norm as norm
 
 
-# set parameters for 4th order Runge-Kutta integration scheme
-t0, t_bound = 0, 10000
-first_step, max_step = .05, .05
 G = 1
-dt = 1
-EPSILON = 0  # 1e-2
 
 
 def main(y0, nr_of_steps):
-    nr_of_bodies = int(len(y0) / 8)
 
-    def f(t, y):
+    # set parameters for 4th order Runge-Kutta integration scheme
+    first_step, max_step = 1e-2, 1e-2
+    t0, t_bound = 0, max_step * nr_of_steps
+    EPSILON = 0  # 1e-2  # "softer" potentials near singularity
+
+    nr_of_bodies = int(len(y0) / 8)  # 8 <- mass, radius, 3 pos/ & 3 vel
+
+    def f(t, y):  # = dy/dt, y ^= state vector
 
         ydot = []
         for i in range(nr_of_bodies):
@@ -32,7 +33,7 @@ def main(y0, nr_of_steps):
 
             acc_i = 0
             for j in range(nr_of_bodies):
-                if i == j:
+                if i == j:  # no self-interaction
                     continue
 
                 m_j, r_j = y[8*j], y[8*j+1]
