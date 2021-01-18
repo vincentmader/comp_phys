@@ -13,7 +13,7 @@ BLACK, WHITE = (0, 0, 0), (255, 255, 255)
 RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 
 
-def main(ys, nr_of_particles, display_size, particle_radius):
+def main(ys, nr_of_particles, display_size):
 
     pygame.init()
     # define display
@@ -43,13 +43,15 @@ def main(ys, nr_of_particles, display_size, particle_radius):
         # get particle coordinates for given frame num
         for particle_idx in range(nr_of_particles):
 
-            x = ys[frame_num][5*particle_idx + 1]
-            y = ys[frame_num][5*particle_idx + 2]
+            r = ys[frame_num][6*particle_idx + 1]
+            x = ys[frame_num][6*particle_idx + 2]
+            y = ys[frame_num][6*particle_idx + 3]
             x *= DISPLAY_WIDTH
             y *= DISPLAY_HEIGHT
 
+            drawing_radius = r * DISPLAY_WIDTH
             color = RED if particle_idx < 10 else WHITE
-            pygame.draw.circle(DISPLAY, color, (x, y), particle_radius)
+            pygame.draw.circle(DISPLAY, color, (x, y), drawing_radius)
 
         formatted_frame_num = frame_num
         if frame_num < 10000:
