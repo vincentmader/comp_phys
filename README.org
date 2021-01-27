@@ -59,6 +59,7 @@ python3 ./main.py
   + simulation of a multi-stage rocket
 - thermodynamics
   + ideal gas in a box
+  + Brownian motion (compare to random-walk?)
 - quantum mechanics
   + wavepacket-wavepacket scattering
   + Q.M. harmonic oscillator
@@ -70,6 +71,9 @@ python3 ./main.py
 - maths
   + Lissajous curves
   + Monte Carlo calculation of pi
+  + random-walk (normal & self-avoiding)
+  + statistics of nuclear decay
+  + Bernoulli process (Gauss distribution from sum of random variables)
 
 Since /C/ runs quite a lot faster than /Python/, it might prove worth the
 effort to re-write some of the code dealing with numerical integration

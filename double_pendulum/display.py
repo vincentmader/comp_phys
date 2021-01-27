@@ -16,7 +16,7 @@ TAIL_LENGTH = 200
 
 
 def main(
-    ys, L, in_christmas_mode=False,
+    ys, L, in_christmas_mode=False, in_screenshot_mode=False,
     fading_tails=True, display_size=(900, 900)
 ):
 
@@ -91,9 +91,8 @@ def main(
             y = ys[frame_num]
         except IndexError:
             continue
-        # clear screen & draw frame
+        # clear screen
         DISPLAY.fill(BLACK)
-        display_utils.draw_frame(DISPLAY, WHITE, display_size)
         # get pendulum coordinates for given frame
         th_1, th_2 = y[0], y[1]
         x_1, y_1 = L * sin(th_1), -L * cos(th_1)
@@ -111,22 +110,24 @@ def main(
         pygame.draw.line(DISPLAY, WHITE, ORIGIN, (x_1, y_1), 3)
         pygame.draw.line(DISPLAY, WHITE, (x_1, y_1), (x_2, y_2), 3)
         # show frame number in top left
-        if not in_christmas_mode:
-            formatted_frame_num = frame_num
-            if frame_num < 10000:
-                formatted_frame_num = f'0{frame_num}'
-                if frame_num < 1000:
-                    formatted_frame_num = f'0{formatted_frame_num}'
-                    if frame_num < 100:
-                        formatted_frame_num = f'0{formatted_frame_num}'
-                        if frame_num < 10:
-                            formatted_frame_num = f'0{formatted_frame_num}'
+        if not in_christmas_mode and not in_screenshot_mode:
+            formatted_frame_num = display_utils.format_frame_number(
+                frame_num, len(str(len(ys)))
+            )
             text = f'{formatted_frame_num}'
             textsurface = myfont.render(f'{text}', False, (255, 255, 255))
             DISPLAY.blit(textsurface, (20, 20))
             text = f' /  {len(ys)}'
             textsurface = myfont.render(f'{text}', False, (255, 255, 255))
             DISPLAY.blit(textsurface, (150, 20))
+        # save screenshots
+        if in_screenshot_mode:
+            input()
+            pygame.image.save(
+                DISPLAY, '../static/media/thumbnails/double_pendulum.png'
+            )
+        else:
+            display_utils.draw_frame(DISPLAY, WHITE, display_size)
         # update, wait shortly, update frame number
         pygame.display.update()
         time.sleep(0.01)

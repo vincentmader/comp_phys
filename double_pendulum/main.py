@@ -19,7 +19,10 @@ y0 = [pi, .8*pi, 0, 0]
 L, m = 1, 1
 
 
-def main(steps=50000, run_integrator=False, in_christmas_mode=False):
+def main(
+    steps=50000, run_integrator=False,
+    in_christmas_mode=False, in_screenshot_mode=False
+):
 
     # get simulation output data
     if run_integrator:
@@ -34,9 +37,10 @@ def main(steps=50000, run_integrator=False, in_christmas_mode=False):
     # display simulation using pygame
     display(
         ys, L,
-        in_christmas_mode=in_christmas_mode,
         fading_tails=True,
-        display_size=DISPLAY_SIZE
+        display_size=DISPLAY_SIZE,
+        in_christmas_mode=in_christmas_mode,
+        in_screenshot_mode=in_screenshot_mode,
     )
 
 
