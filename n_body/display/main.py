@@ -15,23 +15,9 @@ RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 TAIL_LENGTH = 200
 
 
-def main(ys):
+def main(ys, in_screenshot_mode=False):
 
     nr_of_bodies = int(len(ys[0]) / 8)
-
-    # make plot
-    # for i in range(nr_of_bodies):
-    #     x = [j[8*i+2] for j in ys]
-    #     y = [j[8*i+3] for j in ys]
-    #     # print(x)
-    #     # print(y)
-    #     # input()
-
-    #     plt.plot(x, y, label=i)
-    # plt.legend()
-    # plt.savefig('test.pdf')
-
-    # =================
 
     # define display
     DISPLAY_WIDTH, DISPLAY_HEIGHT = 900, 900
@@ -88,9 +74,8 @@ def main(ys):
         except IndexError:
             continue
 
-        # clear screen & draw frame
+        # clear screen
         DISPLAY.fill(BLACK)
-        display_utils.draw_frame(DISPLAY, WHITE, DISPLAY_SIZE)
 
         # get body coordinates for given frame
         for i in range(nr_of_bodies):
@@ -101,7 +86,19 @@ def main(ys):
                 ys, frame_num, i,
                 tail_length=TAIL_LENGTH, fading_tails=True
             )
-            pygame.draw.circle(DISPLAY, WHITE, (r_x, r_y), 10, 45)
+            if False:  # i == 1:
+                pygame.draw.circle(DISPLAY, RED, (r_x, r_y), 10, 45)
+            else:
+                pygame.draw.circle(DISPLAY, WHITE, (r_x, r_y), 10, 45)
+
+        # save screenshots
+        if in_screenshot_mode:
+            input()
+            pygame.image.save(
+                DISPLAY, '../static/media/thumbnails/n_body.png'
+            )
+        else:
+            display_utils.draw_frame(DISPLAY, WHITE, DISPLAY_SIZE)
 
         # update, wait shortly, update frame number
         pygame.display.update()

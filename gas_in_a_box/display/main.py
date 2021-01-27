@@ -15,7 +15,7 @@ BLACK, WHITE = (0, 0, 0), (255, 255, 255)
 RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 
 
-def main(ys, nr_of_particles, display_size):
+def main(ys, nr_of_particles, display_size, in_screenshot_mode):
 
     pygame.init()
     # define display
@@ -44,9 +44,8 @@ def main(ys, nr_of_particles, display_size):
             y = ys[frame_num]
         except IndexError:
             continue
-        # clear screen & draw frame
+        # clear screen
         DISPLAY.fill(BLACK)
-        display_utils.draw_frame(DISPLAY, WHITE, display_size)
         # get particle coordinates for given frame num
         for particle_idx in range(nr_of_particles):
 
@@ -62,12 +61,20 @@ def main(ys, nr_of_particles, display_size):
 
         formatted_frame_num = format_frame_number(frame_num, 5)  # TODO
 
-        text = f'{formatted_frame_num}'
-        textsurface = myfont.render(f'{text}', False, (255, 255, 255))
-        DISPLAY.blit(textsurface, (20, 20))
-        text = f' /  {len(ys)}'
-        textsurface = myfont.render(f'{text}', False, (255, 255, 255))
-        DISPLAY.blit(textsurface, (150, 20))
+        # save screenshots
+        if in_screenshot_mode:
+            input()
+            pygame.image.save(
+                DISPLAY, '../static/media/thumbnails/gas_in_a_box.png'
+            )
+        else:
+            display_utils.draw_frame(DISPLAY, WHITE, DISPLAY_SIZE)
+            text = f'{formatted_frame_num}'
+            textsurface = myfont.render(f'{text}', False, (255, 255, 255))
+            DISPLAY.blit(textsurface, (20, 20))
+            text = f' /  {len(ys)}'
+            textsurface = myfont.render(f'{text}', False, (255, 255, 255))
+            DISPLAY.blit(textsurface, (150, 20))
 
         # update, wait shortly, update frame number
         pygame.display.update()
