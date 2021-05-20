@@ -12,12 +12,12 @@ from utils import display_utils
 BLACK, WHITE = (0, 0, 0), (255, 255, 255)
 RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 
-TAIL_LENGTH = 200
+TAIL_LENGTH = 40
 
 
 def main(ys, in_screenshot_mode=False):
 
-    nr_of_bodies = int(len(ys[0]) / 8)
+    nr_of_bodies = int(len(ys[0]) / 6)
 
     # define display
     DISPLAY_WIDTH, DISPLAY_HEIGHT = 900, 900
@@ -41,10 +41,10 @@ def main(ys, in_screenshot_mode=False):
             y_previous = ys[idx - 1]
             y_current = ys[idx]
 
-            r_xp, r_yp, r_zp = y_previous[8*i +
-                                          2], y_previous[8*i+3], y_previous[8*i+4]
-            r_xc, r_yc, r_zc = y_current[8*i +
-                                         2], y_current[8*i+3], y_current[8*i+4]
+            r_xp, r_yp, r_zp = y_previous[6*i +
+                                          2], y_previous[6*i+3], y_previous[6*i+4]
+            r_xc, r_yc, r_zc = y_current[6*i +
+                                         2], y_current[6*i+3], y_current[6*i+4]
 
             if fading_tails:
                 tail_idx = frame_num - idx
@@ -79,23 +79,24 @@ def main(ys, in_screenshot_mode=False):
 
         # get body coordinates for given frame
         for i in range(nr_of_bodies):
-            r_x, r_y, r_z = y[8*i+2], y[8*i+3], y[8*i+4]
+            r_x, r_y, r_z = y[6*i+2], y[6*i+3], y[6*i+4]
             r_x, r_y = shift_coordinates(r_x, r_y)
-
             draw_tail(
                 ys, frame_num, i,
                 tail_length=TAIL_LENGTH, fading_tails=True
             )
-            if False:  # i == 1:
-                pygame.draw.circle(DISPLAY, RED, (r_x, r_y), 10, 45)
-            else:
-                pygame.draw.circle(DISPLAY, WHITE, (r_x, r_y), 10, 45)
+        for i in range(nr_of_bodies):
+            r_x, r_y, r_z = y[6*i+2], y[6*i+3], y[6*i+4]
+            r_x, r_y = shift_coordinates(r_x, r_y)
+            # if False:  # i == 1:
+            #     pygame.draw.circle(DISPLAY, RED, (r_x, r_y), 10, 45)
+            # else:
+            pygame.draw.circle(DISPLAY, WHITE, (r_x, r_y), 10, 45)
 
         # save screenshots
         if in_screenshot_mode:
-            input()
             pygame.image.save(
-                DISPLAY, '../static/media/thumbnails/n_body.png'
+                DISPLAY, '../static/media/thumbnails/screenshot.png'
             )
         else:
             display_utils.draw_frame(DISPLAY, WHITE, DISPLAY_SIZE)
