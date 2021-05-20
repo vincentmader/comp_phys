@@ -68,7 +68,7 @@ def main(ys, nr_of_particles, display_size, in_screenshot_mode):
                 DISPLAY, '../static/media/thumbnails/gas_in_a_box.png'
             )
         else:
-            display_utils.draw_frame(DISPLAY, WHITE, DISPLAY_SIZE)
+            display_utils.draw_frame(DISPLAY, WHITE, display_size)
             text = f'{formatted_frame_num}'
             textsurface = myfont.render(f'{text}', False, (255, 255, 255))
             DISPLAY.blit(textsurface, (20, 20))
@@ -84,5 +84,5 @@ def main(ys, nr_of_particles, display_size, in_screenshot_mode):
         # date for fps
         date_finish = dt.now()
         fps = 1000000 / ((date_finish - date_start)).microseconds
-        if not frame_num % 20:
-            print(f'fps: {round(fps)}')
+        # if not frame_num % 20:
+        #     print(f'fps: {round(fps)}')

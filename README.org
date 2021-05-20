@@ -53,6 +53,10 @@ python3 ./main.py
   + double pendulum
   + general n-pendulum
   + Galilean cannon
+  + sub-orbital trajectory
+- electro-magnetism
+  + electric field lines
+  + Wien filter
 - astronomy & gravity
   + n-body simulation
   + accreting binary star (fluid dyn. + gravity)
@@ -61,19 +65,26 @@ python3 ./main.py
   + ideal gas in a box
   + Brownian motion (compare to random-walk?)
 - quantum mechanics
-  + wavepacket-wavepacket scattering
+  + particle in a box
   + Q.M. harmonic oscillator
+  + wavepacket-wavepacket scattering
   + Ising model for a cubic crystal
   + proton scattering with heavier ions (Glauber model)
+  + motion of wave-packet in 1D potential
 - fluid dynamics
   + flow through a pipe
   + flow through a rocket engine
+  + interference pattern of superimposed waves
 - maths
   + Lissajous curves
-  + Monte Carlo calculation of pi
+  + Monte Carlo calculation of pi (dropping matches / throwing darts)
   + random-walk (normal & self-avoiding)
   + statistics of nuclear decay
   + Bernoulli process (Gauss distribution from sum of random variables)
+- various
+  + spread of an epidemic through the population
+  + sorting algorithms
+  + population dynamics (Lotka-Volterra simulation)
 
 Since /C/ runs quite a lot faster than /Python/, it might prove worth the
 effort to re-write some of the code dealing with numerical integration
