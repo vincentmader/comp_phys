@@ -78,6 +78,7 @@ python3 ./main.py
 - maths
   + Lissajous curves
   + Monte Carlo calculation of pi (dropping matches / throwing darts)
+  + Fourier transforms
   + random-walk (normal & self-avoiding)
   + statistics of nuclear decay
   + Bernoulli process (Gauss distribution from sum of random variables)
