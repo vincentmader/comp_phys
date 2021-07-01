@@ -70,6 +70,7 @@ python3 ./main.py
   + flow through a rocket engine
 - maths
   + Lissajous curves
+  + Fourier transforms
   + Monte Carlo calculation of pi
   + random-walk (normal & self-avoiding)
   + statistics of nuclear decay
