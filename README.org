@@ -66,14 +66,14 @@ python3 ./main.py
   + simulation of a multi-stage rocket
 - thermodynamics
   + ideal gas in a box
-  + Brownian motion (compare to random-walk?)
+  + Brownian motion (compare to random-walk)
 - quantum mechanics
   + particle in a box
   + Q.M. harmonic oscillator
-  + wavepacket-wavepacket scattering
+  + scattering of two wave packets
   + Ising model for a cubic crystal
   + proton scattering with heavier ions (Glauber model)
-  + motion of wave-packet in 1D potential
+  + motion of wave packet in 1D potential
   + visualization of hydrogen orbitals
 - fluid dynamics
   + flow through a pipe
