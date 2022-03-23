@@ -44,10 +44,12 @@ Then, in the ~./main.py~ file, uncomment the function call for the physics
 problem you are interested in and execute the script.
 
 #+begin_src shell
-python3 ./main.py
+./main.py
 #+end_src
 
-*** Ideas for the future
+* TODO fix path for image-saving (currently saved to ~static~, non-existent in this setup)
+
+* Ideas for the future
 - classical mechanics
   + single pendulum
   + double pendulum
