@@ -3,8 +3,8 @@ import numpy as np
 from scipy.signal import argrelextrema
 from tqdm import tqdm
 
-from integrate import Grid, Pars
-from integrate import main as integrate
+from .integrate import Grid, Pars
+from .integrate import main as integrate
 
 
 EPSILON = 1e-4
@@ -24,7 +24,7 @@ x = np.linspace(pars.x1, pars.x2, pars.Nx)
 rho_0 = 1 + EPSILON * np.exp(-x**2 / (2*SIGMA**2))
 u_0 = np.array([0] * pars.Nx)
 
-INTEGRATE = False
+INTEGRATE = True
 
 
 def main():
@@ -39,11 +39,11 @@ def main():
         # run
         rhos, us = integrate(grid, pars)
 
-        np.savetxt('./testing/sound_pulse_rhos.txt', rhos)
-        np.savetxt('./testing/sound_pulse_us.txt', us)
+        np.savetxt('./sound_pulse/testing/sound_pulse_rhos.txt', rhos)
+        np.savetxt('./sound_pulse/testing/sound_pulse_us.txt', us)
     else:
-        rhos = np.loadtxt('./testing/sound_pulse_rhos.txt')
-        us = np.loadtxt('./testing/sound_pulse_us.txt')
+        rhos = np.loadtxt('./sound_pulse/testing/sound_pulse_rhos.txt')
+        us = np.loadtxt('./sound_pulse/testing/sound_pulse_us.txt')
 
     print(len(rhos))
     for idx, (rho, u) in enumerate(zip(rhos, us)):
@@ -65,4 +65,6 @@ def main():
         # input()
 
 
-main()
+if __name__ == '__main__':
+    main()
+
