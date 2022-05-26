@@ -10,7 +10,7 @@ import utils
 
 DISPLAY_SIZE = 900, 900
 
-CHRISTMAS_MODE = True
+CHRISTMAS_MODE = False
 # NOTE I used this "mode" to generate the reddit Chistmas post 
 #   -> to try out: set to True
 
