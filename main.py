@@ -8,18 +8,18 @@ def main():
 
     # DOUBLE PENDULUM
     # -------------------------------------------------------------------------
-    # double_pendulum.main(run_integrator=True)                        # works! 
+    double_pendulum.main(run_integrator=True)                        # works! 
     #                                                at least on my machine lol
     
-    # DOUBLE PENDULUM
+    # GAS IN A BOX
     # -------------------------------------------------------------------------
     # gas_in_a_box.main(run_integrator=True)                           # works!
     #
     # gas_in_a_box.live()                 # note: buggy, doesn't really work...
     
-    # N-Body Gravity
+    # N-BODY GRAVITY
     # -------------------------------------------------------------------------
-    n_body.main(run_integrator=True)
+    # n_body.main(run_integrator=True)
     
     # SOUND PULSE       note: not my own code, I copied this from some-where...
     # -------------------------------------------------------------------------
