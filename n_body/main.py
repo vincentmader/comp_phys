@@ -8,10 +8,8 @@ from .display import main as display
 from .display import pyplot as display_via_pyplot
 from utils.physics_utils import kepler_velocity as v_K
 
-
 M = 1
 m = 1e-4
-
 
 def rotate_y0(y0, dphi):
 
@@ -33,7 +31,6 @@ def rotate_y0(y0, dphi):
         for j in [y0[6*i], y0[6*i+1], x, y, u, v]:
             new_y0.append(j)
     return new_y0
-
 
 # chaotic solar system
 # y0 = [
@@ -121,7 +118,7 @@ for i in range(N):
 # ]
 
 
-def main(nr_of_steps=2000, run_integrator=True, in_screenshot_mode=False):
+def main(nr_of_steps=2000, run_integrator=True, screenshot_mode=False):
 
     def increment_out_file_name(out_file_dir, out_file_name):
         while True:
@@ -141,4 +138,4 @@ def main(nr_of_steps=2000, run_integrator=True, in_screenshot_mode=False):
         # np.savetxt(os.path.join(out_file_dir, out_file_name), ys)
 
     display_via_pyplot(ys)
-    display(ys, in_screenshot_mode=in_screenshot_mode)
+    display(ys, screenshot_mode=screenshot_mode)

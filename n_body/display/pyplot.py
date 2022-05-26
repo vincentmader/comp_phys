@@ -3,7 +3,6 @@ import numpy as np
 
 
 def main(ys):
-
     nr_of_bodies = int(len(ys[0]) / 8)
 
     # make plot
@@ -14,8 +13,6 @@ def main(ys):
 
         plt.plot(x, y, label=i, color='white')
 
-    # plt.xticks([-2, -1, 0, 1, 2])
-    # plt.yticks([-2, -1, 0, 1, 2])
     plt.xticks([])
     plt.yticks([])
     # plt.legend()
@@ -43,8 +40,10 @@ def main(ys):
     # frame.set_edgecolor('white')
 
     # save
-    plt.savefig('../static/media/pyplots/nbody_2.pdf')
-    plt.savefig('../static/media/pyplots/nbody_2.png')
+    PATH_TO_FIGURES = "./n_body/figures/nbody.pdf"
+    for ext in ["pdf", "png"]:
+        plt.savefig(f"{PATH_TO_FIGURES}.{ext}")
+        # plt.savefig(f'../static/media/pyplots/nbody_2.{ext}')
     plt.close()
 
     # =================

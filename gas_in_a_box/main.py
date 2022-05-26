@@ -14,7 +14,7 @@ def main(
     temperature=3,  # Kelvin (that's pretty cool!)
     run_integrator=True,
     dt=1e-3,
-    in_screenshot_mode=False,
+    screenshot_mode=False,
 ):
 
     y0 = initialize(nr_of_particles, temperature)
@@ -26,4 +26,4 @@ def main(
         ys = np.loadtxt('./gas_in_a_box/out/ys.txt')
 
     display(ys, nr_of_particles, DISPLAY_SIZE,
-            in_screenshot_mode=in_screenshot_mode)
+            screenshot_mode=screenshot_mode)

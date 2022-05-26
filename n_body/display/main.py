@@ -17,7 +17,7 @@ RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 TAIL_LENGTH = 40
 
 
-def main(ys, in_screenshot_mode=False):
+def main(ys, screenshot_mode=False):
 
     nr_of_bodies = int(len(ys[0]) / 6)
 
@@ -96,7 +96,7 @@ def main(ys, in_screenshot_mode=False):
             pygame.draw.circle(DISPLAY, WHITE, (r_x, r_y), 10, 45)
 
         # save screenshots
-        if in_screenshot_mode:
+        if screenshot_mode:
             pygame.image.save(
                 DISPLAY, '../static/media/thumbnails/screenshot.png'
             )
