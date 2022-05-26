@@ -16,7 +16,7 @@ BLACK, WHITE = (0, 0, 0), (255, 255, 255)
 RED, GREEN, BLUE = (255, 0, 0), (0, 128, 0), (0, 0, 255)
 
 
-def main(ys, nr_of_particles, display_size, in_screenshot_mode):
+def main(ys, nr_of_particles, display_size, screenshot_mode):
 
     pygame.init()
     # define display
@@ -63,7 +63,7 @@ def main(ys, nr_of_particles, display_size, in_screenshot_mode):
         formatted_frame_num = format_frame_number(frame_num, 5)  # TODO
 
         # save screenshots
-        if in_screenshot_mode:
+        if screenshot_mode:
             input()
             pygame.image.save(
                 DISPLAY, '../static/media/thumbnails/gas_in_a_box.png'
